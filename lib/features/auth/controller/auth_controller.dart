@@ -6,6 +6,7 @@ import 'package:twitterclone/apis/user_api.dart';
 import 'package:twitterclone/core/utils.dart';
 import 'package:twitterclone/features/auth/view/login_view.dart';
 import 'package:twitterclone/features/home/view/home_view.dart';
+import 'package:twitterclone/features/auth/view/signup_view.dart';
 import 'package:twitterclone/models/user_models.dart';
 
 final authControlerProvider = StateNotifierProvider<AuthControler, bool>((ref) {
@@ -13,6 +14,17 @@ final authControlerProvider = StateNotifierProvider<AuthControler, bool>((ref) {
     authAPI: ref.watch(authAPIProvider),
     userAPI: ref.watch(userAPIProvider),
   );
+});
+
+final currentUserDetailsProvider = FutureProvider((ref) {
+  final currentUserId = ref.watch(currentUserAccountProvider).value!.$id;
+  final userDetails = ref.watch(userDetailsProvider(currentUserId));
+  return userDetails.value;
+});
+
+final userDetailsProvider = FutureProvider.family((ref, String uid) {
+  final authControler = ref.watch(authControlerProvider.notifier);
+  return authControler.getUserData(uid);
 });
 
 final currentUserAccountProvider = FutureProvider((ref) {
@@ -23,8 +35,10 @@ final currentUserAccountProvider = FutureProvider((ref) {
 class AuthControler extends StateNotifier<bool> {
   final AuthAPI _authAPI;
   final UserAPI _userAPI;
-  AuthControler({required AuthAPI authAPI, required UserAPI userAPI})
-      : _authAPI = authAPI,
+  AuthControler({
+    required AuthAPI authAPI,
+    required UserAPI userAPI,
+  })  : _authAPI = authAPI,
         _userAPI = userAPI,
         super(false);
 
@@ -51,7 +65,7 @@ class AuthControler extends StateNotifier<bool> {
           following: const [],
           profilePic: '',
           bannerPic: '',
-          uid: '',
+          uid: r.$id,
           bio: '',
           isTwitterBlue: false,
         );
@@ -78,5 +92,11 @@ class AuthControler extends StateNotifier<bool> {
     res.fold((l) => showSnackBar(context, l.message), (r) {
       Navigator.push(context, HomeView.route());
     });
+  }
+
+  Future<UserModel> getUserData(String uid) async {
+    final res = await _userAPI.getUserData(uid);
+    final updatedUser = UserModel.fromMap(res.data);
+    return updatedUser;
   }
 }

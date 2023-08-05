@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:twitterclone/common/loading_page.dart';
+// import 'package:twitterclone/common/loading_page.dart';
 import 'package:twitterclone/features/auth/controller/auth_controller.dart';
 import 'package:twitterclone/features/auth/view/signup_view.dart';
 import 'package:twitterclone/features/home/view/home_view.dart';
@@ -24,7 +24,7 @@ class MyApp extends ConsumerWidget {
         theme: AppTheme.theme,
         home: ref.watch(currentUserAccountProvider).when(
               data: (user) {
-                print(user!.email);
+                // print(user!.email);
                 if (user != null) {
                   return const HomeView();
                 }

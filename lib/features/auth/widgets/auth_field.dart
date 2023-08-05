@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitterclone/theme/theme.dart';
+import 'package:twitterclone/theme/pallete.dart';
 
 class AuthField extends StatelessWidget {
   final TextEditingController controller;

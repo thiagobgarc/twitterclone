@@ -6,11 +6,17 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/assertions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:twitterclone/main.dart';
 
 void main() {
+  setUp(() {
+    // Set FlutterError.demangleStackTrace to true
+    FlutterError.demangleStackTrace = true as StackTraceDemangler;
+  });
+
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());

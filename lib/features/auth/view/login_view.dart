@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitterclone/common/common.dart';
-import 'package:twitterclone/common/loading_page.dart';
+// import 'package:twitterclone/common/loading_page.dart';
 import 'package:twitterclone/constants/constants.dart';
 import 'package:twitterclone/features/auth/controller/auth_controller.dart';
 import 'package:twitterclone/features/auth/view/signup_view.dart';
@@ -77,13 +77,13 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     RichText(
                       text: TextSpan(
                         text: "Don't have an account?",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                         ),
                         children: [
                           TextSpan(
                             text: ' Sign up',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Pallete.blueColor,
                               fontSize: 16,
                             ),

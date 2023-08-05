@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitterclone/common/common.dart';
-import 'package:twitterclone/common/loading_page.dart';
+// import 'package:twitterclone/common/loading_page.dart';
 import 'package:twitterclone/constants/constants.dart';
 import 'package:twitterclone/features/auth/view/login_view.dart';
 import 'package:twitterclone/features/auth/widgets/auth_field.dart';

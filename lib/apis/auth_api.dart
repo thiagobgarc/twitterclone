@@ -3,7 +3,6 @@ import 'package:appwrite/models.dart' as model;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:twitterclone/core/core.dart';
-import 'package:twitterclone/core/providers.dart';
 
 final authAPIProvider = Provider((ref) {
   final account = ref.watch(appwriteAccountProvider);
@@ -32,7 +31,7 @@ class AuthAPI implements IAuthAPI {
   Future<model.Account?> currentUserAccount() async {
     try {
       return await _account.get();
-    } on AppwriteException catch (e) {
+    } on AppwriteException {
       return null;
     } catch (e) {
       return null;
