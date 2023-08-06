@@ -1,16 +1,21 @@
-# twitterclone
+# Flutter Twitter Clone
 
-A new Flutter project.
+A Twitter clone built using Flutter, enabling users to sign up, log in, create tweets, and view them in their news feed.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+User Authentication: Sign up and log in securely using user authentication.
+Create Tweets: Compose and post tweets with text and images.
+News Feed: See your own tweets and tweets from users you follow in your personalized news feed.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
+
+
+
+
